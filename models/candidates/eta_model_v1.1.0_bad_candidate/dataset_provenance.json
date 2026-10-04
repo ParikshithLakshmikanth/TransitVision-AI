@@ -1,0 +1,23 @@
+{
+  "historical_anchor_path": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\data\\processed\\kandy_eta_training.parquet",
+  "historical_anchor_hash": "1d5af060533bd0b6821d69138b4eb99a428028c051d04b15308d0cf272e4983c",
+  "historical_anchor_rows": 140475,
+  "stream_source_path": "resolved_real_stream_buffer",
+  "stream_source_hash": "2366f656134f5293dd079f57cc86e1789d804ddc15b8fa24093d86bc010cfc04",
+  "stream_total_resolved_rows": 3000,
+  "candidate_train_stream_rows": 2400,
+  "recent_holdout_rows": 600,
+  "total_candidate_train_rows": 142875,
+  "candidate_train_data_hash": "f2f0e313de9663f2fa86e42a770f033bf3ade6f43e3ed8e0b07628a6df260527",
+  "recent_holdout_data_hash": "1d0abf7e781e8f98b7d6e5f12a0d04042fc72644c1b0750f3c6a4f9abd0f2dd2",
+  "original_validation_path": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\data\\processed\\kandy_eta_validation.parquet",
+  "original_validation_hash": "e01635b507790e9717d1f88db538a454dd4c378ae45262b287ee820106e1f1e4",
+  "original_validation_rows": 30102,
+  "split_ratio_train_pct": 80.0,
+  "split_ratio_holdout_pct": 19.999999999999996,
+  "contamination_check_passed": true,
+  "leakage_guard_passed": true,
+  "trigger_reason": "System operating within nominal performance thresholds. No retraining required.",
+  "created_at": "2026-09-12T03:54:25.897957+00:00",
+  "source_model_version": "v1.1.0"
+}

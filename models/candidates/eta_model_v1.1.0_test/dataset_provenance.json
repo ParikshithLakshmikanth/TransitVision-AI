@@ -1,0 +1,23 @@
+{
+  "historical_anchor_path": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\data\\processed\\kandy_eta_training.parquet",
+  "historical_anchor_hash": "1d5af060533bd0b6821d69138b4eb99a428028c051d04b15308d0cf272e4983c",
+  "historical_anchor_rows": 140475,
+  "stream_source_path": "resolved_real_stream_buffer",
+  "stream_source_hash": "571ef741659aecdb95ff55a76f32fb793b0acba4c361fdcd3706c854f4e85adf",
+  "stream_total_resolved_rows": 2000,
+  "candidate_train_stream_rows": 1600,
+  "recent_holdout_rows": 400,
+  "total_candidate_train_rows": 142075,
+  "candidate_train_data_hash": "b1f36565b4fe33ae9fef6a4429015941267f0cd12b8ae76e043bee4d36108ea8",
+  "recent_holdout_data_hash": "9e4280abfa2412236d207364157421dd7fa4ddd0fb126344932755c16915545c",
+  "original_validation_path": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\data\\processed\\kandy_eta_validation.parquet",
+  "original_validation_hash": "e01635b507790e9717d1f88db538a454dd4c378ae45262b287ee820106e1f1e4",
+  "original_validation_rows": 30102,
+  "split_ratio_train_pct": 80.0,
+  "split_ratio_holdout_pct": 19.999999999999996,
+  "contamination_check_passed": true,
+  "leakage_guard_passed": true,
+  "trigger_reason": "Autonomous Retraining Trigger",
+  "created_at": "2026-09-12T05:44:11.513447+00:00",
+  "source_model_version": "v1.0.0"
+}

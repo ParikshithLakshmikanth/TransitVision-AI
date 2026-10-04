@@ -1,0 +1,491 @@
+{
+  "C": {
+    "experiment": "Experiment C (Severe Drift Adaptation & Promotion)",
+    "disturbance": {
+      "scenario": "Corridor Congestion Surge",
+      "scenario_id": "CONGESTION_SURGE",
+      "intensity": 0.85,
+      "affected_records": 3500,
+      "affected_segments": null,
+      "provenance": {
+        "source_type": "SYNTHETIC_SIMULATION",
+        "is_synthetic": true
+      }
+    },
+    "drift": {
+      "data_drift_count": 12,
+      "performance_drift_count": 12,
+      "concept_drift_count": 101,
+      "total_drift_events": 125,
+      "first_concept_drift_position": 31,
+      "first_performance_drift_position": 500,
+      "trigger_position": 1000,
+      "trigger_reason": "Sustained Performance Drift: 2 consecutive windows with MAE >= 1.60x baseline."
+    },
+    "retraining_data": {
+      "historical_anchor_count": 140475,
+      "recent_stream_training_count": 2400,
+      "total_candidate_training_count": 142875,
+      "original_holdout_count": 30102,
+      "recent_holdout_count": 600,
+      "contamination_check_passed": true,
+      "candidate_train_data_hash": "f2f0e313de9663f2fa86e42a770f033bf3ade6f43e3ed8e0b07628a6df260527",
+      "recent_holdout_data_hash": "1d0abf7e781e8f98b7d6e5f12a0d04042fc72644c1b0750f3c6a4f9abd0f2dd2"
+    },
+    "candidate": {
+      "model_id": "model_lightgbm_v1.1.0",
+      "version": "v1.1.0",
+      "algorithm": "LightGBMRegressor",
+      "lifecycle_final_status": "PRODUCTION"
+    },
+    "gate_a": {
+      "name": "Gate A (Original Holdout Generalization)",
+      "champion_mae_sec": 44.01,
+      "candidate_mae_sec": 43.07,
+      "champion_r2": 0.7035,
+      "candidate_r2": 0.7217,
+      "max_allowed_mae_sec": null,
+      "min_allowed_r2": null,
+      "passed": true
+    },
+    "gate_b": {
+      "name": "Gate B (Recent Holdout Adaptation)",
+      "champion_recent_mae_sec": 42.19,
+      "candidate_recent_mae_sec": 40.99,
+      "max_allowed_recent_mae_sec": null,
+      "passed": true
+    },
+    "gate_c": {
+      "name": "Gate C (Safety & Tail Risk)",
+      "candidate_rmse_sec": 69.73,
+      "champion_rmse_sec": 71.98,
+      "candidate_p95_sec": null,
+      "champion_p95_sec": null,
+      "latency_ms_per_sample": null,
+      "negative_predictions": null,
+      "excessive_predictions_gt_3600": null,
+      "leakage_guard_passed": null,
+      "feature_contract_29": null,
+      "passed": true
+    },
+    "shadow_validation": {
+      "records_evaluated": 300,
+      "identical_records_verified": true,
+      "champion_mae_sec": null,
+      "challenger_mae_sec": null,
+      "exceptions_count": 0,
+      "passed": true
+    },
+    "canary_10": {
+      "stage_name": "CANARY_10",
+      "canary_percentage": 10,
+      "passed": true,
+      "total_records_processed": 300,
+      "selected_canary_records": 15,
+      "champion_evaluation_count": 15,
+      "challenger_evaluation_count": 15,
+      "unique_trips_count": 1,
+      "time_range_start": "2022-09-27T16:40:52+00:00",
+      "time_range_end": "2022-09-27T17:28:33+00:00",
+      "champion_mae_sec": 35.33,
+      "challenger_mae_sec": 35.77,
+      "champion_rmse_sec": 62.09,
+      "challenger_rmse_sec": 56.18,
+      "champion_p95_sec": 126.23,
+      "challenger_p95_sec": 116.68,
+      "mae_ratio": 1.0122,
+      "max_allowed_mae_ratio": 1.05,
+      "exceptions_count": 0,
+      "record_ids_match": true,
+      "failure_reasons": [],
+      "details": {
+        "routing_percentage": 10,
+        "min_samples_required": 15
+      }
+    },
+    "canary_50": {
+      "stage_name": "CANARY_50",
+      "canary_percentage": 50,
+      "passed": true,
+      "total_records_processed": 300,
+      "selected_canary_records": 115,
+      "champion_evaluation_count": 115,
+      "challenger_evaluation_count": 115,
+      "unique_trips_count": 9,
+      "time_range_start": "2022-09-28T07:28:51+00:00",
+      "time_range_end": "2022-09-28T11:15:52+00:00",
+      "champion_mae_sec": 46.69,
+      "challenger_mae_sec": 44.02,
+      "champion_rmse_sec": 69.57,
+      "challenger_rmse_sec": 64.41,
+      "champion_p95_sec": 128.9,
+      "challenger_p95_sec": 124.67,
+      "mae_ratio": 0.9427,
+      "max_allowed_mae_ratio": 1.05,
+      "exceptions_count": 0,
+      "record_ids_match": true,
+      "failure_reasons": [],
+      "details": {
+        "routing_percentage": 50,
+        "min_samples_required": 15
+      }
+    },
+    "promotion_and_hot_swap": {
+      "previous_champion_id": "model_lightgbm_v1",
+      "promoted_model_id": "model_lightgbm_v1.1.0",
+      "hot_swap_success": null,
+      "swap_mechanism": "Thread-safe atomic reference swap under threading.Lock",
+      "downtime_sec": 0.0,
+      "active_production_model": "model_lightgbm_v1.1.0"
+    },
+    "watchdog": {
+      "rollback_triggered": false,
+      "samples_monitored": 500,
+      "observed_mae_sec": 174.33,
+      "baseline_mae_sec": 190.83,
+      "mae_ratio": 0.9135,
+      "max_allowed_mae_ratio": 1.25,
+      "avg_latency_ms": 1.2,
+      "max_allowed_latency_ms": 20.0,
+      "exceptions_count": 0,
+      "active_production_model_id": "model_lightgbm_v1.1.0",
+      "rollback_reason": null,
+      "applied_thresholds": {
+        "watchdog_window_size": 500,
+        "max_degradation_ratio": 1.25,
+        "max_latency_ms": 20.0,
+        "max_allowed_exceptions": 0
+      },
+      "details": {}
+    },
+    "final_production_state": {
+      "active_production_model_id": "model_lightgbm_v1.1.0",
+      "active_production_version": "v1.1.0",
+      "total_registered_models": 6
+    },
+    "status": "PASS"
+  },
+  "D": {
+    "experiment": "Experiment D (Bad Candidate Rejection / Promotion Safety)",
+    "champion_before": {
+      "model_id": "model_lightgbm_v1.1.0",
+      "version": "v1.1.0",
+      "status": "PRODUCTION"
+    },
+    "bad_candidate_specification": {
+      "candidate_model_id": "model_lightgbm_v1.1.0_bad_candidate",
+      "candidate_version": "v1.1.0_bad_candidate",
+      "algorithm": "LightGBMRegressor",
+      "degradation_mechanism": "Severe intentional underfitting: n_estimators=2, max_depth=1, lr=0.0001, min_child_samples=1000",
+      "hyperparameters": {
+        "n_estimators": 2,
+        "max_depth": 1,
+        "learning_rate": 0.0001,
+        "min_child_samples": 1000
+      }
+    },
+    "candidate_metrics": {
+      "original_holdout_mae_sec": 96.05,
+      "original_holdout_rmse_sec": 134.02,
+      "original_holdout_r2": -0.028,
+      "recent_holdout_mae_sec": 98.16,
+      "recent_holdout_rmse_sec": 131.96,
+      "recent_holdout_r2": -0.0294
+    },
+    "gate_a": {
+      "name": "Gate A (Original Holdout Generalization)",
+      "champion_mae_sec": 43.07,
+      "candidate_mae_sec": 96.05,
+      "champion_r2": 0.7217,
+      "candidate_r2": -0.028,
+      "mae_ratio": 2.2301,
+      "max_allowed_mae_ratio": 1.01,
+      "max_allowed_r2_drop": 0.01,
+      "passed": false
+    },
+    "gate_b": {
+      "name": "Gate B (Recent Holdout Adaptation)",
+      "champion_recent_mae_sec": 40.99,
+      "candidate_recent_mae_sec": 98.16,
+      "recent_mae_ratio": 2.3947,
+      "max_allowed_recent_mae_ratio": 1.0,
+      "passed": false
+    },
+    "gate_c": {
+      "name": "Gate C (Safety & Tail Risk)",
+      "champion_rmse_sec": 69.73,
+      "candidate_rmse_sec": 134.02,
+      "rmse_ratio": 1.922,
+      "max_allowed_rmse_ratio": 1.05,
+      "champion_p95_sec": 140.98,
+      "candidate_p95_sec": 291.06,
+      "p95_ratio": 2.0645,
+      "max_allowed_p95_ratio": 1.08,
+      "latency_ms_per_sample": 67.88,
+      "max_latency_ms_per_sample": 5.0,
+      "negative_predictions_count": 0,
+      "excessive_predictions_gt_3600": 0,
+      "leakage_guard_passed": true,
+      "feature_contract_29": true,
+      "passed": false
+    },
+    "rejection_summary": {
+      "exact_rejection_point": "Dual-Holdout Multi-Tier Validation Gate (Gate A & Gate B)",
+      "failure_reasons": [
+        "Gate A (Generalization) Failed: Original Holdout MAE degraded by 123.00% (96.05s vs champion 43.07s, threshold <= 1.01x).",
+        "Gate A (Generalization) Failed: R2 dropped by 0.7497 (-0.0280 vs champion 0.7217, max allowed drop <= 0.01).",
+        "Gate B (Adaptation) Failed: Recent Holdout MAE did not improve or maintain champion performance (98.16s vs champion 40.99s, ratio 2.3949x > threshold 1.00x).",
+        "Gate C (Safety) Failed: RMSE ratio (1.9219x) exceeded threshold (1.05x).",
+        "Gate C (Safety) Failed: P95 error ratio (2.0646x) exceeded threshold (1.08x)."
+      ],
+      "candidate_final_status": "REJECTED",
+      "lifecycle_transitions": [
+        "CANDIDATE",
+        "REJECTED"
+      ],
+      "shadow_evaluations_performed": 0,
+      "canary_evaluations_performed": 0,
+      "hot_swaps_performed": 0,
+      "promotions_performed": 0,
+      "rollbacks_performed": 0
+    },
+    "production_state_after": {
+      "active_production_model_id": "model_lightgbm_v1.1.0",
+      "active_production_version": "v1.1.0",
+      "production_unchanged": true,
+      "total_registered_models": 7
+    },
+    "status": "PASS"
+  },
+  "E": {
+    "experiment": "Experiment E (Model Lifecycle State-Machine & Promotion Safety Audit)",
+    "real_production_before": {
+      "model_id": "model_lightgbm_v1.1.0",
+      "version": "v1.1.0",
+      "status": "PRODUCTION",
+      "total_registered_models": 7
+    },
+    "legal_transitions_tested": [
+      {
+        "model_id": "iso_candidate_happy",
+        "transition": "-> VALIDATED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_candidate_happy",
+        "transition": "-> SHADOW",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_candidate_happy",
+        "transition": "-> CANARY_10",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_candidate_happy",
+        "transition": "-> CANARY_50",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_candidate_happy",
+        "transition": "-> PROMOTION_CANDIDATE",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_candidate_happy",
+        "transition": "-> PRODUCTION",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_reject_test_0",
+        "transition": "CANDIDATE -> REJECTED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_reject_test_1",
+        "transition": "VALIDATED -> REJECTED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_reject_test_2",
+        "transition": "SHADOW -> REJECTED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_reject_test_3",
+        "transition": "CANARY_10 -> REJECTED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_reject_test_4",
+        "transition": "CANARY_50 -> REJECTED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_reject_test_5",
+        "transition": "PROMOTION_CANDIDATE -> REJECTED",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_promoted_challenger",
+        "transition": "PRODUCTION -> ROLLED_BACK",
+        "status": "ACCEPTED"
+      },
+      {
+        "model_id": "iso_base_champion",
+        "transition": "ARCHIVED -> PRODUCTION (Restoration)",
+        "status": "ACCEPTED"
+      }
+    ],
+    "legal_transitions_accepted_count": 14,
+    "illegal_transitions_tested": [
+      {
+        "test_name": "1. CANDIDATE -> PRODUCTION",
+        "model_id": "ill_1",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_1: Cannot transition from 'CANDIDATE' to 'PRODUCTION'. Allowed: ['REJECTED', 'VALIDATED']"
+      },
+      {
+        "test_name": "2. CANDIDATE -> CANARY_50",
+        "model_id": "ill_2",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_2: Cannot transition from 'CANDIDATE' to 'CANARY_50'. Allowed: ['REJECTED', 'VALIDATED']"
+      },
+      {
+        "test_name": "3. CANDIDATE -> PROMOTION_CANDIDATE",
+        "model_id": "ill_3",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_3: Cannot transition from 'CANDIDATE' to 'PROMOTION_CANDIDATE'. Allowed: ['REJECTED', 'VALIDATED']"
+      },
+      {
+        "test_name": "4. REJECTED -> PRODUCTION",
+        "model_id": "ill_4",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_4: Cannot transition from 'REJECTED' to 'PRODUCTION'. Allowed: []"
+      },
+      {
+        "test_name": "5. SHADOW -> PRODUCTION",
+        "model_id": "ill_5",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_5: Cannot transition from 'SHADOW' to 'PRODUCTION'. Allowed: ['REJECTED', 'CANARY_10']"
+      },
+      {
+        "test_name": "6. CANARY_10 -> PRODUCTION",
+        "model_id": "ill_6",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_6: Cannot transition from 'CANARY_10' to 'PRODUCTION'. Allowed: ['REJECTED', 'CANARY_50']"
+      },
+      {
+        "test_name": "7. ARCHIVED -> SHADOW (Illegal revive)",
+        "model_id": "ill_7",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_7: Cannot transition from 'ARCHIVED' to 'SHADOW'. Allowed: ['PRODUCTION']"
+      },
+      {
+        "test_name": "8. Direct promote_to_production on unvalidated CANDIDATE",
+        "model_id": "ill_8",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_8: Cannot transition from 'CANDIDATE' to 'PRODUCTION'. Allowed: ['REJECTED', 'VALIDATED']"
+      },
+      {
+        "test_name": "9. VALIDATED -> CANARY_50",
+        "model_id": "ill_9",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_9: Cannot transition from 'VALIDATED' to 'CANARY_50'. Allowed: ['SHADOW', 'REJECTED']"
+      },
+      {
+        "test_name": "10. REJECTED -> VALIDATED",
+        "model_id": "ill_10",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_10: Cannot transition from 'REJECTED' to 'VALIDATED'. Allowed: []"
+      },
+      {
+        "test_name": "11. ROLLED_BACK -> PRODUCTION directly",
+        "model_id": "ill_11",
+        "result": "REJECTED_AS_EXPECTED",
+        "exception": "Illegal lifecycle transition for ill_11: Cannot transition from 'ROLLED_BACK' to 'PRODUCTION'. Allowed: []"
+      }
+    ],
+    "illegal_transitions_rejected_count": 11,
+    "exactly_one_production_invariant_verified": true,
+    "rejected_model_protection_verified": true,
+    "archived_v1_rollback_target_verified": true,
+    "real_production_after": {
+      "model_id": "model_lightgbm_v1.1.0",
+      "version": "v1.1.0",
+      "status": "PRODUCTION",
+      "total_registered_models": 7,
+      "production_unchanged": true
+    },
+    "audit_counters": {
+      "real_hot_swaps_performed": 0,
+      "real_promotions_performed": 0,
+      "real_rollbacks_performed": 0
+    },
+    "failed_assertions": [],
+    "status": "PASS"
+  },
+  "F": {
+    "experiment": "Experiment F (Post-Promotion Degradation & Automated Emergency Rollback)",
+    "production_before_rollback": {
+      "model_id": "model_lightgbm_v1.1.0",
+      "version": "v1.1.0",
+      "status": "PRODUCTION"
+    },
+    "regression_injection": {
+      "scenario": "Severe Heavy Rain Corridor Disturbance",
+      "scenario_id": "heavy_rain",
+      "intensity": 0.85,
+      "samples_evaluated": 500,
+      "mechanism": "Post-promotion streaming replay under meteorological & speed disruption"
+    },
+    "watchdog_evaluation": {
+      "watchdog_window_size": 500,
+      "pre_promotion_baseline_mae_sec": 38.77,
+      "post_promotion_observed_mae_sec": 76.20821999999998,
+      "mae_ratio": 1.9656492133092591,
+      "max_allowed_mae_ratio": 1.25,
+      "avg_latency_ms": 0.0,
+      "max_allowed_latency_ms": 20.0,
+      "exceptions_count": 0,
+      "rollback_condition_crossed": "MAE Ratio (1.97x) exceeded maximum allowed threshold (1.25x)",
+      "rollback_triggered": true,
+      "rollback_reason": "Watchdog Emergency Rollback Triggered: MAE (76.21s) reached 1.97x of baseline (38.77s, threshold=1.25x)"
+    },
+    "lifecycle_transitions": {
+      "failed_model": {
+        "model_id": "model_lightgbm_v1.1.0",
+        "from_status": "PRODUCTION",
+        "to_status": "ROLLED_BACK"
+      },
+      "restored_model": {
+        "model_id": "model_lightgbm_v1",
+        "from_status": "ARCHIVED",
+        "to_status": "PRODUCTION",
+        "restored_version": "v1.0.0"
+      }
+    },
+    "live_inference_verification": {
+      "live_inference_succeeded": true,
+      "active_serving_model_id": "model_lightgbm_v1",
+      "active_serving_version": "v1.0.0",
+      "predicted_eta_sec": 156.75,
+      "target_leakage_guard_passed": true,
+      "feature_contract_29_valid": true
+    },
+    "registry_state_after_rollback": {
+      "active_production_model_id": "model_lightgbm_v1",
+      "active_production_version": "v1.0.0",
+      "exactly_one_production_model": true,
+      "failed_model_status": "ROLLED_BACK",
+      "bad_candidate_status": "REJECTED",
+      "total_registered_models": 7
+    },
+    "counters": {
+      "hot_swaps_performed": 1,
+      "promotions_performed": 0,
+      "rollbacks_performed": 1
+    },
+    "status": "PASS"
+  }
+}

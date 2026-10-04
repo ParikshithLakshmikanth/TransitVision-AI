@@ -1,0 +1,128 @@
+# TransitVision AI Root Configuration
+PROJECT_NAME: "TransitVision AI"
+ENVIRONMENT: "development"
+RANDOM_SEED: 42
+
+# Paths (relative to project root)
+PATHS:
+  RAW_DATA_DIR: "data/raw"
+  INTERIM_DATA_DIR: "data/interim"
+  PROCESSED_DATA_DIR: "data/processed"
+  METADATA_DIR: "data/metadata"
+  MODELS_DIR: "models"
+  REGISTRY_DIR: "ml/registry/store"
+  LOGS_DIR: "logs"
+
+# Data Ingestion & Download Configuration
+DATA_SOURCES:
+  PRIMARY_TRANSIT:
+    NAME: "Dublin Bus GPS AVL Stream"
+    PROVIDER: "Dublin City Council / Insight Centre / data.gov.ie"
+    URL: "https://opendata.dublincity.ie/TrafficOpenData/sir010113-310113.zip"
+    FALLBACK_SAMPLE_URL: "https://raw.githubusercontent.com/datasets/dublin-bus-gps/master/data/sample.csv"
+    FORMAT: "csv"
+    TARGET_FILE: "data/raw/dublin_bus_gps_sample.csv"
+    TIMEZONE: "UTC"
+    BOUNDING_BOX:
+      MIN_LAT: 53.15
+      MAX_LAT: 53.55
+      MIN_LON: -6.55
+      MAX_LON: -6.05
+
+  WEATHER_SOURCE:
+    NAME: "Open-Meteo Historical Weather API"
+    BASE_URL: "https://archive-api.open-meteo.com/v1/archive"
+    LATITUDE: 53.3498
+    LONGITUDE: -6.2603
+    HOURLY_METRICS:
+      - "temperature_2m"
+      - "relative_humidity_2m"
+      - "precipitation"
+      - "rain"
+      - "weather_code"
+      - "surface_pressure"
+      - "wind_speed_10m"
+    TARGET_FILE: "data/raw/historical_weather_dublin.csv"
+
+# Data Validation Thresholds & Constraints
+VALIDATION:
+  MAX_ALLOWED_SPEED_KMH: 100.0
+  MIN_ALLOWED_SPEED_KMH: 0.0
+  MAX_DELAY_SECONDS: 7200.0       # 2 hours
+  MIN_DELAY_SECONDS: -1800.0      # Early by 30 mins
+  ALLOWED_MISSING_PERCENTAGE: 0.05
+  COORDINATE_BOUNDS:
+    LAT: [53.15, 53.55]
+    LON: [-6.55, -6.05]
+
+# Feature Engineering
+FEATURES:
+  TARGET_COLUMN: "delay_seconds"
+  CATEGORICAL_FEATURES:
+    - "route_id"
+    - "direction"
+    - "day_of_week"
+    - "hour_of_day"
+    - "weather_condition"
+  NUMERICAL_FEATURES:
+    - "distance_to_destination_km"
+    - "scheduled_travel_time_sec"
+    - "rolling_avg_speed_kmh"
+    - "segment_congestion_index"
+    - "temperature_c"
+    - "precipitation_mm"
+    - "wind_speed_kmh"
+  SYNTHETIC_SIMULATION_FEATURES:
+    - "simulated_passenger_occupancy_ratio"
+    - "injected_disturbance_intensity"
+    - "is_incident_active"
+
+# ML Model Training & Hyperparameters
+MODEL:
+  ALGORITHM: "LightGBMRegressor"
+  PARAMS:
+    n_estimators: 300
+    learning_rate: 0.05
+    num_leaves: 31
+    max_depth: -1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+  BASELINE_ALGORITHMS:
+    - "RidgeRegression"
+    - "RandomForestRegressor"
+
+# MLOps Drift & Retraining Thresholds
+DRIFT:
+  DATA_DRIFT_METHOD: "Kolmogorov-Smirnov"
+  CONCEPT_DRIFT_METHOD: "Page-Hinkley"
+  KS_P_VALUE_THRESHOLD: 0.05
+  PAGE_HINKLEY_DELTA: 0.005
+  PAGE_HINKLEY_LAMBDA: 50
+  PERFORMANCE_METRICS:
+    MAE_MAX_THRESHOLD_SEC: 180.0
+    RMSE_MAX_THRESHOLD_SEC: 300.0
+    MAPE_MAX_THRESHOLD: 0.25
+
+RETRAINING:
+  TRIGGER_CONDITION: "drift_detected_or_mae_exceeded"
+  VALIDATION_IMPROVEMENT_GATE_PCT: 0.03 # New model must improve MAE by >= 3% or maintain quality within 2% on fresh data
+  RETRAIN_WINDOW_SAMPLES: 10000
+
+# Telemetry Simulator & Streaming Replay
+SIMULATOR:
+  REPLAY_SPEED_MULTIPLIER: 5.0
+  STREAM_TICK_INTERVAL_SEC: 1.0
+  DEFAULT_SCENARIO: "normal_operations"
+  AVAILABLE_SCENARIOS:
+    - "normal_operations"
+    - "rush_hour_congestion"
+    - "heavy_rainstorm"
+    - "road_closure_incident"
+    - "transit_strike_reroute"
+
+# Backend & API
+API:
+  HOST: "0.0.0.0"
+  PORT: 8000
+  RELOAD: true

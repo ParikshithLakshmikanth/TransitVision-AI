@@ -1,0 +1,40 @@
+{
+  "model_id": "model_lightgbm_v1",
+  "version": "v1.0.0",
+  "algorithm": "LightGBMRegressor",
+  "target": "eta_to_next_stop_sec",
+  "status": "PRODUCTION",
+  "registered_at": "2026-09-11T15:50:30.526559+00:00",
+  "training_rows": 140475,
+  "validation_rows": 30102,
+  "feature_version": "v1.0.0",
+  "hyperparameters": {
+    "n_estimators": 167,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "subsample": 0.85,
+    "colsample_bytree": 0.85,
+    "random_state": 42
+  },
+  "metrics": {
+    "samples": 30102,
+    "mae_sec": 44.01,
+    "rmse_sec": 71.98,
+    "median_ae_sec": 26.04,
+    "p90_error_sec": 101.02,
+    "p95_error_sec": 146.88,
+    "p99_error_sec": 287.96,
+    "r2": 0.7035,
+    "mape_pct": 20.86,
+    "smape_pct": 21.92,
+    "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+    "sanity_checks": {
+      "non_positive_predictions_count": 0,
+      "non_positive_predictions_pct": 0.0,
+      "excessive_predictions_count": 0,
+      "excessive_predictions_pct": 0.0
+    }
+  },
+  "artifact_path": null,
+  "promoted_to_production_at": "2026-09-11T15:50:30.528122+00:00"
+}
