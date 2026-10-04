@@ -1,0 +1,60 @@
+{
+  "catalog_version": "1.0.0",
+  "project": "TransitVision AI",
+  "last_updated": "2026-09-11T20:00:00Z",
+  "datasets": [
+    {
+      "id": "dublin_bus_avl_gps",
+      "name": "Dublin Bus GPS Sample Dataset (Insight Project)",
+      "type": "Primary Transit Trajectory",
+      "format": "csv",
+      "provider": "Dublin City Council / Insight Centre / data.gov.ie",
+      "source_url": "https://opendata.dublincity.ie/TrafficOpenData/sir010113-310113.zip",
+      "license": "Creative Commons Attribution (CC BY 4.0) / Irish PSI License",
+      "geographic_region": {
+        "city": "Dublin",
+        "country": "Ireland",
+        "bounds": {
+          "min_lat": 53.15,
+          "max_lat": 53.55,
+          "min_lon": -6.55,
+          "max_lon": -6.05
+        }
+      },
+      "attributes_count": 15,
+      "primary_keys": ["Timestamp", "VehicleID", "VehicleJourneyID"],
+      "target_variable": "Delay",
+      "real_or_synthetic": "REAL_WORLD_OBSERVATION"
+    },
+    {
+      "id": "open_meteo_dublin_historical",
+      "name": "Open-Meteo Historical Meteorological Archive",
+      "type": "Environmental & Weather",
+      "format": "json/csv",
+      "provider": "Open-Meteo GmbH",
+      "source_url": "https://archive-api.open-meteo.com/v1/archive",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "geographic_region": {
+        "latitude": 53.3498,
+        "longitude": -6.2603
+      },
+      "temporal_resolution": "hourly",
+      "features": ["temperature_2m", "relative_humidity_2m", "precipitation", "rain", "weather_code", "wind_speed_10m"],
+      "real_or_synthetic": "REAL_WORLD_OBSERVATION"
+    },
+    {
+      "id": "chicago_traffic_tracker_benchmark",
+      "name": "Chicago Traffic Tracker Historical Congestion",
+      "type": "Secondary Benchmark / Traffic Speed",
+      "format": "csv",
+      "provider": "City of Chicago Data Portal",
+      "source_url": "https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Historical-Congestion-Esti/77jv-5ug8",
+      "license": "City of Chicago Terms of Use / Public Domain",
+      "geographic_region": {
+        "city": "Chicago",
+        "country": "USA"
+      },
+      "real_or_synthetic": "REAL_WORLD_OBSERVATION"
+    }
+  ]
+}

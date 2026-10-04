@@ -1,0 +1,171 @@
+{
+  "audit_version": "2.0.0",
+  "audit_date": "2026-09-11T15:46:29.535747+00:00",
+  "provenance_status": "VERIFIED",
+  "dataset_name": "Bus Travel Time Data (Kandy, Sri Lanka)",
+  "primary_source_url": "https://www.kaggle.com/datasets/shiveswarranr/bus-travel-time-data",
+  "weather_source_url": "https://archive-api.open-meteo.com/v1/archive",
+  "columns": {
+    "trip_id": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "trip_id",
+      "transformation": "Parsed string identifier",
+      "data_classification": "REAL_GPS_DERIVED",
+      "is_observed": true
+    },
+    "deviceid": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "deviceid",
+      "transformation": "On-board GPS hardware device identifier",
+      "data_classification": "REAL_GPS_DERIVED",
+      "is_observed": true
+    },
+    "direction": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "direction",
+      "transformation": "Route direction (1: Kandy->Digana, 2: Digana->Kandy)",
+      "data_classification": "REAL_GPS_DERIVED",
+      "is_observed": true
+    },
+    "segment": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "segment",
+      "transformation": "Roadway segment index between consecutive stops",
+      "data_classification": "REAL_GPS_DERIVED",
+      "is_observed": true
+    },
+    "segment_length_km": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "length",
+      "transformation": "Physical roadway distance of segment in kilometers",
+      "data_classification": "REAL_GPS_DERIVED",
+      "is_observed": true
+    },
+    "timestamp_utc": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "date + start_time",
+      "transformation": "Parsed ISO UTC timestamp from GPS departure time",
+      "data_classification": "REAL_GPS_DERIVED",
+      "is_observed": true
+    },
+    "eta_to_next_stop_sec": {
+      "source_file": "data/raw/kandy_bus/bus_running_times_654.csv",
+      "source_column": "run_time_in_seconds",
+      "transformation": "Actual measured GPS travel duration to next stop (Target)",
+      "data_classification": "REAL_PROCESSED_FROM_GPS",
+      "is_observed": true
+    },
+    "hour": {
+      "source_file": "derived",
+      "source_column": "timestamp_utc.hour",
+      "transformation": "Hour of day (0-23)",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "minute": {
+      "source_file": "derived",
+      "source_column": "timestamp_utc.minute",
+      "transformation": "Minute of hour (0-59)",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "day_of_week": {
+      "source_file": "derived",
+      "source_column": "timestamp_utc.dayofweek",
+      "transformation": "Day of week (0-6)",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "is_weekend": {
+      "source_file": "derived",
+      "source_column": "day_of_week >= 5",
+      "transformation": "Weekend binary indicator",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "is_peak_period": {
+      "source_file": "derived",
+      "source_column": "hour, minute",
+      "transformation": "Rush hour indicator (07:00-09:00, 16:30-18:30)",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "previous_segment_run_time": {
+      "source_file": "derived",
+      "source_column": "run_time_in_seconds.shift(1)",
+      "transformation": "Causal shift of previous segment run time within trip",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "rolling_prev_segment_mean": {
+      "source_file": "derived",
+      "source_column": "previous_segment_run_time.rolling(3).mean()",
+      "transformation": "Causal rolling 3-segment backward mean",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "cumulative_trip_time_sec": {
+      "source_file": "derived",
+      "source_column": "previous_segment_run_time.cumsum()",
+      "transformation": "Cumulative elapsed travel time on trip before current segment",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "historical_segment_time_mean": {
+      "source_file": "derived",
+      "source_column": "run_time_in_seconds",
+      "transformation": "Historical average travel time for segment & direction",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "segment_delay_ratio": {
+      "source_file": "derived",
+      "source_column": "previous_segment_run_time / historical_segment_time_mean",
+      "transformation": "Congestion delay ratio indicator",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "congestion_proxy": {
+      "source_file": "derived",
+      "source_column": "segment_delay_ratio > 1.25",
+      "transformation": "Binary congestion indicator",
+      "data_classification": "DERIVED_FEATURE",
+      "is_observed": false
+    },
+    "temperature_2m": {
+      "source_file": "data/raw/kandy_weather/historical_weather_kandy.csv",
+      "source_column": "temperature_2m",
+      "transformation": "Open-Meteo historical hourly air temperature for Kandy",
+      "data_classification": "WEATHER_OBSERVED",
+      "is_observed": true
+    },
+    "relative_humidity_2m": {
+      "source_file": "data/raw/kandy_weather/historical_weather_kandy.csv",
+      "source_column": "relative_humidity_2m",
+      "transformation": "Open-Meteo historical hourly relative humidity",
+      "data_classification": "WEATHER_OBSERVED",
+      "is_observed": true
+    },
+    "precipitation": {
+      "source_file": "data/raw/kandy_weather/historical_weather_kandy.csv",
+      "source_column": "precipitation",
+      "transformation": "Open-Meteo historical hourly precipitation (mm)",
+      "data_classification": "WEATHER_OBSERVED",
+      "is_observed": true
+    },
+    "wind_speed_10m": {
+      "source_file": "data/raw/kandy_weather/historical_weather_kandy.csv",
+      "source_column": "wind_speed_10m",
+      "transformation": "Open-Meteo historical hourly wind speed (km/h)",
+      "data_classification": "WEATHER_OBSERVED",
+      "is_observed": true
+    },
+    "weather_code": {
+      "source_file": "data/raw/kandy_weather/historical_weather_kandy.csv",
+      "source_column": "weather_code",
+      "transformation": "Open-Meteo WMO weather code",
+      "data_classification": "WEATHER_OBSERVED",
+      "is_observed": true
+    }
+  }
+}

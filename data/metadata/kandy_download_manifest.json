@@ -1,0 +1,38 @@
+{
+  "manifest_version": "1.0.0",
+  "dataset_name": "Bus Travel Time Data (Kandy, Sri Lanka)",
+  "source_url": "https://www.kaggle.com/datasets/shiveswarranr/bus-travel-time-data",
+  "generated_at": "2026-09-11T15:39:05.574929+00:00",
+  "files": [
+    {
+      "filename": "bus_dwell_times_654.csv",
+      "relative_path": "data\\raw\\kandy_bus\\bus_dwell_times_654.csv",
+      "size_bytes": 9448335,
+      "sha256": "009e5691555b4ca02ff989970465676955ac8f28b2460b9a8ed5c5ead6cf2d80"
+    },
+    {
+      "filename": "bus_running_times_654.csv",
+      "relative_path": "data\\raw\\kandy_bus\\bus_running_times_654.csv",
+      "size_bytes": 12773065,
+      "sha256": "217a45d0b1a4a08d760065a000bed502b31e4c27054d3b9cab2e7e75fb313921"
+    },
+    {
+      "filename": "bus_stops_and_terminals_654.csv",
+      "relative_path": "data\\raw\\kandy_bus\\bus_stops_and_terminals_654.csv",
+      "size_bytes": 1733,
+      "sha256": "86016cf96a0296a94457460ece8530a63fb2ae28fb0dedf220b02f8f7b118863"
+    },
+    {
+      "filename": "bus_trips_654.csv",
+      "relative_path": "data\\raw\\kandy_bus\\bus_trips_654.csv",
+      "size_bytes": 651609,
+      "sha256": "7f19ed501ce279caa730021dbecc4c4b7276bd69c6d9c09165c2787e8351b9e4"
+    },
+    {
+      "filename": "historical_weather_kandy.csv",
+      "relative_path": "data\\raw\\kandy_weather\\historical_weather_kandy.csv",
+      "size_bytes": 445805,
+      "sha256": "7c447d5c7e10c4b008840ab32e26d45f307b4133dce794760a51d8f710b9b5dc"
+    }
+  ]
+}

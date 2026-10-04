@@ -1,30 +1,3 @@
-# Core & Data Engineering
-pandas>=2.0.0
-numpy>=1.24.0
-scipy>=1.10.0
-pyarrow>=14.0.0
-pyyaml>=6.0
-requests>=2.31.0
-pydantic>=2.5.0
-pydantic-settings>=2.1.0
-
-# Machine Learning & MLOps
-scikit-learn>=1.3.0
-lightgbm>=4.1.0
-xgboost>=2.0.0
-joblib>=1.3.0
-
-# Drift Detection & Statistical Monitoring
-evidently>=0.4.0
-alibi-detect>=0.11.0
-
-# Backend & Real-time Streaming
-fastapi>=0.109.0
-uvicorn[standard]>=0.27.0
-websockets>=12.0
-python-multipart>=0.0.6
-
-# Utilities & Testing
-pytest>=7.4.0
-tqdm>=4.66.0
-python-dotenv>=1.0.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:106116a1cd98cf6299d7d5fb82326d635d89f61448905d55925bcd7d1ca2907b
+size 517

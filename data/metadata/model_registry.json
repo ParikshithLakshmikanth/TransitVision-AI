@@ -1,0 +1,628 @@
+{
+  "models": [
+    {
+      "model_id": "model_median_baseline_v1",
+      "version": "v1.0.0",
+      "algorithm": "MedianBaseline",
+      "target": "eta_to_next_stop_sec",
+      "status": "CANDIDATE",
+      "registered_at": "2026-09-11T15:50:30.515832+00:00",
+      "training_rows": 140475,
+      "validation_rows": 30102,
+      "feature_version": "v1.0.0",
+      "hyperparameters": {
+        "strategy": "median"
+      },
+      "metrics": {
+        "samples": 30102,
+        "mae_sec": 97.43,
+        "rmse_sec": 140.67,
+        "median_ae_sec": 66.0,
+        "p90_error_sec": 246.0,
+        "p95_error_sec": 317.0,
+        "p99_error_sec": 450.0,
+        "r2": -0.1327,
+        "mape_pct": 61.57,
+        "smape_pct": 49.17,
+        "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+        "sanity_checks": {
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0
+        }
+      },
+      "artifact_path": null
+    },
+    {
+      "model_id": "model_ridge_v1",
+      "version": "v1.0.0",
+      "algorithm": "RidgeRegression",
+      "target": "eta_to_next_stop_sec",
+      "status": "CANDIDATE",
+      "registered_at": "2026-09-11T15:50:30.515832+00:00",
+      "training_rows": 140475,
+      "validation_rows": 30102,
+      "feature_version": "v1.0.0",
+      "hyperparameters": {
+        "alpha": 10.0,
+        "random_state": 42
+      },
+      "metrics": {
+        "samples": 30102,
+        "mae_sec": 45.01,
+        "rmse_sec": 73.91,
+        "median_ae_sec": 27.36,
+        "p90_error_sec": 99.56,
+        "p95_error_sec": 148.9,
+        "p99_error_sec": 301.48,
+        "r2": 0.6874,
+        "mape_pct": 21.65,
+        "smape_pct": 23.3,
+        "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+        "sanity_checks": {
+          "non_positive_predictions_count": 1,
+          "non_positive_predictions_pct": 0.003,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0
+        }
+      },
+      "artifact_path": null
+    },
+    {
+      "model_id": "model_random_forest_v1",
+      "version": "v1.0.0",
+      "algorithm": "RandomForestRegressor",
+      "target": "eta_to_next_stop_sec",
+      "status": "CANDIDATE",
+      "registered_at": "2026-09-11T15:50:30.524410+00:00",
+      "training_rows": 140475,
+      "validation_rows": 30102,
+      "feature_version": "v1.0.0",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": 16,
+        "min_samples_split": 10,
+        "random_state": 42
+      },
+      "metrics": {
+        "samples": 30102,
+        "mae_sec": 43.25,
+        "rmse_sec": 70.2,
+        "median_ae_sec": 26.06,
+        "p90_error_sec": 97.96,
+        "p95_error_sec": 142.16,
+        "p99_error_sec": 277.06,
+        "r2": 0.7179,
+        "mape_pct": 21.05,
+        "smape_pct": 21.45,
+        "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+        "sanity_checks": {
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0
+        }
+      },
+      "artifact_path": null
+    },
+    {
+      "model_id": "model_hist_gb_v1",
+      "version": "v1.0.0",
+      "algorithm": "HistGradientBoostingRegressor",
+      "target": "eta_to_next_stop_sec",
+      "status": "CANDIDATE",
+      "registered_at": "2026-09-11T15:50:30.525503+00:00",
+      "training_rows": 140475,
+      "validation_rows": 30102,
+      "feature_version": "v1.0.0",
+      "hyperparameters": {
+        "max_iter": 200,
+        "learning_rate": 0.08,
+        "max_leaf_nodes": 63,
+        "random_state": 42
+      },
+      "metrics": {
+        "samples": 30102,
+        "mae_sec": 44.31,
+        "rmse_sec": 72.58,
+        "median_ae_sec": 25.99,
+        "p90_error_sec": 102.37,
+        "p95_error_sec": 149.39,
+        "p99_error_sec": 288.01,
+        "r2": 0.6985,
+        "mape_pct": 20.96,
+        "smape_pct": 22.03,
+        "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+        "sanity_checks": {
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0
+        }
+      },
+      "artifact_path": null
+    },
+    {
+      "model_id": "model_lightgbm_v1",
+      "version": "v1.0.0",
+      "algorithm": "LightGBMRegressor",
+      "target": "eta_to_next_stop_sec",
+      "status": "PRODUCTION",
+      "registered_at": "2026-09-11T15:50:30.526559+00:00",
+      "training_rows": 140475,
+      "validation_rows": 30102,
+      "feature_version": "v1.0.0",
+      "hyperparameters": {
+        "n_estimators": 167,
+        "learning_rate": 0.05,
+        "num_leaves": 63,
+        "subsample": 0.85,
+        "colsample_bytree": 0.85,
+        "random_state": 42
+      },
+      "metrics": {
+        "samples": 30102,
+        "mae_sec": 44.01,
+        "rmse_sec": 71.98,
+        "median_ae_sec": 26.04,
+        "p90_error_sec": 101.02,
+        "p95_error_sec": 146.88,
+        "p99_error_sec": 287.96,
+        "r2": 0.7035,
+        "mape_pct": 20.86,
+        "smape_pct": 21.92,
+        "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+        "sanity_checks": {
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0
+        }
+      },
+      "artifact_path": null,
+      "promoted_to_production_at": "2026-09-11T15:50:30.528122+00:00",
+      "artifact_dir": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\models\\eta_model_v1.0.0",
+      "archived_at": "2026-09-12T03:22:44.984565+00:00",
+      "lifecycle_history": [
+        {
+          "from_status": "PRODUCTION",
+          "to_status": "ARCHIVED",
+          "timestamp": "2026-09-12T03:22:44.984565+00:00",
+          "reason": "Superseded by promoted model model_lightgbm_v1.1.0."
+        },
+        {
+          "from_status": "PRODUCTION",
+          "to_status": "PRODUCTION",
+          "timestamp": "2026-09-12T04:44:05.438093+00:00",
+          "reason": "Restored to production following rollback of model_lightgbm_v1.1.0."
+        }
+      ],
+      "restored_to_production_at": "2026-09-12T04:44:05.438093+00:00"
+    },
+    {
+      "model_id": "model_lightgbm_v1.1.0",
+      "version": "v1.1.0",
+      "algorithm": "LightGBMRegressor",
+      "parent_model_id": "model_lightgbm_v1",
+      "target": "eta_to_next_stop_sec",
+      "status": "ROLLED_BACK",
+      "registered_at": "2026-09-12T03:22:37.828954+00:00",
+      "training_rows": 142875,
+      "validation_rows": 30102,
+      "hyperparameters": {
+        "boosting_type": "gbdt",
+        "class_weight": null,
+        "colsample_bytree": 0.85,
+        "importance_type": "split",
+        "learning_rate": 0.05,
+        "max_depth": -1,
+        "min_child_samples": 20,
+        "min_child_weight": 0.001,
+        "min_split_gain": 0.0,
+        "n_estimators": 180,
+        "n_jobs": null,
+        "num_leaves": 63,
+        "objective": null,
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "subsample": 0.85,
+        "subsample_for_bin": 200000,
+        "subsample_freq": 0,
+        "verbose": -1
+      },
+      "metrics": {
+        "passed": true,
+        "gate_a_passed": true,
+        "gate_b_passed": true,
+        "gate_c_passed": true,
+        "champion_model_id": "model_lightgbm_v1",
+        "candidate_model_id": "model_lightgbm_v1.1.0",
+        "champion_original_metrics": {
+          "dataset_name": "Original Holdout (Generalization)",
+          "samples": 30102,
+          "mae_sec": 44.01,
+          "rmse_sec": 71.98,
+          "median_ae_sec": 26.04,
+          "p90_error_sec": 101.02,
+          "p95_error_sec": 146.88,
+          "p99_error_sec": 287.96,
+          "r2": 0.7035,
+          "mape_pct": 20.86,
+          "smape_pct": 21.92,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 74.63,
+          "leakage_guard_passed": true
+        },
+        "candidate_original_metrics": {
+          "dataset_name": "Original Holdout (Generalization)",
+          "samples": 30102,
+          "mae_sec": 43.07,
+          "rmse_sec": 69.73,
+          "median_ae_sec": 26.01,
+          "p90_error_sec": 97.81,
+          "p95_error_sec": 140.98,
+          "p99_error_sec": 274.92,
+          "r2": 0.7217,
+          "mape_pct": 20.62,
+          "smape_pct": 21.42,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 91.7,
+          "leakage_guard_passed": true
+        },
+        "champion_recent_metrics": {
+          "dataset_name": "Recent Holdout (Adaptation)",
+          "samples": 600,
+          "mae_sec": 42.19,
+          "rmse_sec": 67.89,
+          "median_ae_sec": 25.65,
+          "p90_error_sec": 100.16,
+          "p95_error_sec": 136.09,
+          "p99_error_sec": 284.71,
+          "r2": 0.7275,
+          "mape_pct": 20.0,
+          "smape_pct": 20.96,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 11.76,
+          "leakage_guard_passed": true
+        },
+        "candidate_recent_metrics": {
+          "dataset_name": "Recent Holdout (Adaptation)",
+          "samples": 600,
+          "mae_sec": 40.99,
+          "rmse_sec": 66.02,
+          "median_ae_sec": 24.57,
+          "p90_error_sec": 96.09,
+          "p95_error_sec": 134.22,
+          "p99_error_sec": 268.84,
+          "r2": 0.7424,
+          "mape_pct": 19.61,
+          "smape_pct": 20.28,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 11.81,
+          "leakage_guard_passed": true
+        },
+        "applied_thresholds": {
+          "max_original_mae_degradation_ratio": 1.01,
+          "max_original_r2_drop": 0.01,
+          "max_recent_mae_degradation_ratio": 1.0,
+          "max_rmse_degradation_ratio": 1.05,
+          "max_p95_degradation_ratio": 1.08,
+          "max_allowed_non_positive_pct": 0.0,
+          "max_allowed_excessive_count": 0,
+          "max_latency_per_sample_ms": 5.0
+        },
+        "failure_reasons": [],
+        "comparison_summary": {
+          "original_mae_delta_sec": -0.93,
+          "original_mae_ratio": 0.9788,
+          "original_r2_drop": -0.0182,
+          "recent_mae_delta_sec": -1.2,
+          "recent_mae_ratio": 0.9716,
+          "original_rmse_ratio": 0.9688,
+          "original_p95_ratio": 0.9598
+        },
+        "canary_stages": [
+          {
+            "stage_name": "CANARY_10",
+            "canary_percentage": 10,
+            "passed": true,
+            "total_records_processed": 300,
+            "selected_canary_records": 15,
+            "champion_evaluation_count": 15,
+            "challenger_evaluation_count": 15,
+            "unique_trips_count": 1,
+            "time_range_start": "2022-09-27T16:40:52+00:00",
+            "time_range_end": "2022-09-27T17:28:33+00:00",
+            "champion_mae_sec": 35.33,
+            "challenger_mae_sec": 35.77,
+            "champion_rmse_sec": 62.09,
+            "challenger_rmse_sec": 56.18,
+            "champion_p95_sec": 126.23,
+            "challenger_p95_sec": 116.68,
+            "mae_ratio": 1.0122,
+            "max_allowed_mae_ratio": 1.05,
+            "exceptions_count": 0,
+            "record_ids_match": true,
+            "failure_reasons": [],
+            "details": {
+              "routing_percentage": 10,
+              "min_samples_required": 15
+            }
+          },
+          {
+            "stage_name": "CANARY_50",
+            "canary_percentage": 50,
+            "passed": true,
+            "total_records_processed": 300,
+            "selected_canary_records": 115,
+            "champion_evaluation_count": 115,
+            "challenger_evaluation_count": 115,
+            "unique_trips_count": 9,
+            "time_range_start": "2022-09-28T07:28:51+00:00",
+            "time_range_end": "2022-09-28T11:15:52+00:00",
+            "champion_mae_sec": 46.69,
+            "challenger_mae_sec": 44.02,
+            "champion_rmse_sec": 69.57,
+            "challenger_rmse_sec": 64.41,
+            "champion_p95_sec": 128.9,
+            "challenger_p95_sec": 124.67,
+            "mae_ratio": 0.9427,
+            "max_allowed_mae_ratio": 1.05,
+            "exceptions_count": 0,
+            "record_ids_match": true,
+            "failure_reasons": [],
+            "details": {
+              "routing_percentage": 50,
+              "min_samples_required": 15
+            }
+          }
+        ]
+      },
+      "artifact_dir": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\models\\candidates\\eta_model_v1.1.0",
+      "artifact_hashes": {
+        "model.joblib": "d2e85beb46e34df27a0086a1b380bf7bde56dce0b480640312a089c1a6cfcaa0",
+        "preprocessor.joblib": "f0ee4fe83be3e92a3318430eca99689df9dbe62ae9a847f3b52f838e219dd3d1",
+        "feature_config.json": "5004d2ff6a60714db2c12286da9ad32ba56010b0b77ba5820c8e9fdc66159389",
+        "dataset_provenance.json": "70acc5560a69c851fec5f8b746fe651bdcff2679be62cf8b88165179ea95d526",
+        "metadata.json": "2d297aa5dac40c399dde4f1793aa12befbdf373f722bcfec077a61864d21b159"
+      },
+      "dataset_provenance_hash": "f2f0e313de9663f2fa86e42a770f033bf3ade6f43e3ed8e0b07628a6df260527",
+      "lifecycle_history": [
+        {
+          "from_status": null,
+          "to_status": "CANDIDATE",
+          "timestamp": "2026-09-12T03:22:37.828954+00:00",
+          "reason": "Initial candidate registration after training."
+        },
+        {
+          "from_status": "CANDIDATE",
+          "to_status": "VALIDATED",
+          "timestamp": "2026-09-12T03:22:38.042667+00:00",
+          "reason": "Candidate model_lightgbm_v1.1.0 passed all validation gates (Gate A Generalization: 43.07s vs 44.01s; Gate B Adaptation: 40.99s vs 42.19s). Approved for Shadow Safety Replay."
+        },
+        {
+          "from_status": "VALIDATED",
+          "to_status": "SHADOW",
+          "timestamp": "2026-09-12T03:22:38.045722+00:00",
+          "reason": "Starting 300-record simulation shadow safety check."
+        },
+        {
+          "from_status": "SHADOW",
+          "to_status": "CANARY_10",
+          "timestamp": "2026-09-12T03:22:41.641683+00:00",
+          "reason": "Starting 10% canary traffic rollout."
+        },
+        {
+          "from_status": "CANARY_10",
+          "to_status": "CANARY_50",
+          "timestamp": "2026-09-12T03:22:42.536214+00:00",
+          "reason": "Promoting to 50% canary traffic rollout."
+        },
+        {
+          "from_status": "CANARY_50",
+          "to_status": "PROMOTION_CANDIDATE",
+          "timestamp": "2026-09-12T03:22:44.966234+00:00",
+          "reason": "Successfully passed 10% and 50% Canary stages. Ready for atomic hot swap."
+        },
+        {
+          "from_status": "PROMOTION_CANDIDATE",
+          "to_status": "PRODUCTION",
+          "timestamp": "2026-09-12T03:22:44.984565+00:00",
+          "reason": "Atomic hot swap executed successfully with all safety gates verified."
+        },
+        {
+          "from_status": "PRODUCTION",
+          "to_status": "ROLLED_BACK",
+          "timestamp": "2026-09-12T04:44:05.438093+00:00",
+          "reason": "Watchdog Emergency Rollback Triggered: MAE (76.21s) reached 1.97x of baseline (38.77s, threshold=1.25x)"
+        }
+      ],
+      "promoted_to_production_at": "2026-09-12T03:22:44.984565+00:00",
+      "rolled_back_at": "2026-09-12T04:44:05.438093+00:00",
+      "rollback_reason": "Watchdog Emergency Rollback Triggered: MAE (76.21s) reached 1.97x of baseline (38.77s, threshold=1.25x)"
+    },
+    {
+      "model_id": "model_lightgbm_v1.1.0_bad_candidate",
+      "version": "v1.1.0_bad_candidate",
+      "algorithm": "LightGBMRegressor",
+      "parent_model_id": "model_lightgbm_v1.1.0",
+      "target": "eta_to_next_stop_sec",
+      "status": "REJECTED",
+      "registered_at": "2026-09-12T03:54:28.662439+00:00",
+      "training_rows": 142875,
+      "validation_rows": 30102,
+      "hyperparameters": {
+        "boosting_type": "gbdt",
+        "class_weight": null,
+        "colsample_bytree": 0.85,
+        "importance_type": "split",
+        "learning_rate": 0.0001,
+        "max_depth": 1,
+        "min_child_samples": 1000,
+        "min_child_weight": 0.001,
+        "min_split_gain": 0.0,
+        "n_estimators": 2,
+        "n_jobs": null,
+        "num_leaves": 63,
+        "objective": null,
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "subsample": 0.85,
+        "subsample_for_bin": 200000,
+        "subsample_freq": 0,
+        "verbose": -1
+      },
+      "metrics": {
+        "passed": false,
+        "gate_a_passed": false,
+        "gate_b_passed": false,
+        "gate_c_passed": false,
+        "champion_model_id": "model_lightgbm_v1.1.0",
+        "candidate_model_id": "model_lightgbm_v1.1.0_bad_candidate",
+        "champion_original_metrics": {
+          "dataset_name": "Original Holdout (Generalization)",
+          "samples": 30102,
+          "mae_sec": 43.07,
+          "rmse_sec": 69.73,
+          "median_ae_sec": 26.01,
+          "p90_error_sec": 97.81,
+          "p95_error_sec": 140.98,
+          "p99_error_sec": 274.92,
+          "r2": 0.7217,
+          "mape_pct": 20.62,
+          "smape_pct": 21.42,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 199.14,
+          "leakage_guard_passed": true
+        },
+        "candidate_original_metrics": {
+          "dataset_name": "Original Holdout (Generalization)",
+          "samples": 30102,
+          "mae_sec": 96.05,
+          "rmse_sec": 134.02,
+          "median_ae_sec": 69.94,
+          "p90_error_sec": 220.06,
+          "p95_error_sec": 291.06,
+          "p99_error_sec": 424.01,
+          "r2": -0.028,
+          "mape_pct": 70.65,
+          "smape_pct": 48.17,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 67.88,
+          "leakage_guard_passed": true
+        },
+        "champion_recent_metrics": {
+          "dataset_name": "Recent Holdout (Adaptation)",
+          "samples": 600,
+          "mae_sec": 40.99,
+          "rmse_sec": 66.02,
+          "median_ae_sec": 24.57,
+          "p90_error_sec": 96.09,
+          "p95_error_sec": 134.22,
+          "p99_error_sec": 268.84,
+          "r2": 0.7424,
+          "mape_pct": 19.61,
+          "smape_pct": 20.28,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 15.93,
+          "leakage_guard_passed": true
+        },
+        "candidate_recent_metrics": {
+          "dataset_name": "Recent Holdout (Adaptation)",
+          "samples": 600,
+          "mae_sec": 98.16,
+          "rmse_sec": 131.96,
+          "median_ae_sec": 75.5,
+          "p90_error_sec": 210.12,
+          "p95_error_sec": 271.26,
+          "p99_error_sec": 374.38,
+          "r2": -0.0294,
+          "mape_pct": 73.58,
+          "smape_pct": 49.88,
+          "non_positive_predictions_count": 0,
+          "non_positive_predictions_pct": 0.0,
+          "excessive_predictions_count": 0,
+          "excessive_predictions_pct": 0.0,
+          "inference_latency_ms": 13.01,
+          "leakage_guard_passed": true
+        },
+        "applied_thresholds": {
+          "max_original_mae_degradation_ratio": 1.01,
+          "max_original_r2_drop": 0.01,
+          "max_recent_mae_degradation_ratio": 1.0,
+          "max_rmse_degradation_ratio": 1.05,
+          "max_p95_degradation_ratio": 1.08,
+          "max_allowed_non_positive_pct": 0.0,
+          "max_allowed_excessive_count": 0,
+          "max_latency_per_sample_ms": 5.0
+        },
+        "failure_reasons": [
+          "Gate A (Generalization) Failed: Original Holdout MAE degraded by 123.00% (96.05s vs champion 43.07s, threshold <= 1.01x).",
+          "Gate A (Generalization) Failed: R2 dropped by 0.7497 (-0.0280 vs champion 0.7217, max allowed drop <= 0.01).",
+          "Gate B (Adaptation) Failed: Recent Holdout MAE did not improve or maintain champion performance (98.16s vs champion 40.99s, ratio 2.3949x > threshold 1.00x).",
+          "Gate C (Safety) Failed: RMSE ratio (1.9219x) exceeded threshold (1.05x).",
+          "Gate C (Safety) Failed: P95 error ratio (2.0646x) exceeded threshold (1.08x)."
+        ],
+        "comparison_summary": {
+          "original_mae_delta_sec": 52.98,
+          "original_mae_ratio": 2.23,
+          "original_r2_drop": 0.7497,
+          "recent_mae_delta_sec": 57.17,
+          "recent_mae_ratio": 2.3949,
+          "original_rmse_ratio": 1.9219,
+          "original_p95_ratio": 2.0646
+        }
+      },
+      "artifact_dir": "D:\\Parikshith\\College\\PBL\\ML\\TransitVision\\Prj\\models\\candidates\\eta_model_v1.1.0_bad_candidate",
+      "artifact_hashes": {
+        "model.joblib": "dc7fb97bbbbe284658eae37fd8d42ceeb15dc4b93081d44b35c6a568146d56e0",
+        "preprocessor.joblib": "f0ee4fe83be3e92a3318430eca99689df9dbe62ae9a847f3b52f838e219dd3d1",
+        "feature_config.json": "5004d2ff6a60714db2c12286da9ad32ba56010b0b77ba5820c8e9fdc66159389",
+        "dataset_provenance.json": "f8494f3e23e1fdd808ce778445cbe1e32ef56233113a3e89b10d1403100678a7",
+        "metadata.json": "46e3a941b05521dab5de060e075a6fa6296e84ff168be66e5490dee2ee6fff95"
+      },
+      "dataset_provenance_hash": "f2f0e313de9663f2fa86e42a770f033bf3ade6f43e3ed8e0b07628a6df260527",
+      "lifecycle_history": [
+        {
+          "from_status": null,
+          "to_status": "CANDIDATE",
+          "timestamp": "2026-09-12T03:54:28.662439+00:00",
+          "reason": "Initial candidate registration after training."
+        },
+        {
+          "from_status": "CANDIDATE",
+          "to_status": "REJECTED",
+          "timestamp": "2026-09-12T03:54:29.012465+00:00",
+          "reason": "Candidate model_lightgbm_v1.1.0_bad_candidate REJECTED due to failure in: Gate A (Generalization), Gate B (Adaptation), Gate C (Safety/Tail Risk)"
+        }
+      ],
+      "rejected_at": "2026-09-12T03:54:29.012465+00:00",
+      "rejection_reason": "Candidate model_lightgbm_v1.1.0_bad_candidate REJECTED due to failure in: Gate A (Generalization), Gate B (Adaptation), Gate C (Safety/Tail Risk)"
+    }
+  ],
+  "production_model_id": "model_lightgbm_v1"
+}

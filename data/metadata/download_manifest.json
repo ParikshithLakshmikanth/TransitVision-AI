@@ -1,0 +1,42 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_at": "2026-09-11T14:46:01.611251+00:00",
+  "datasets": [
+    {
+      "dataset_name": "TFI Dublin Bus Static GTFS",
+      "source_url": "https://www.transportforireland.ie/transitData/Data/GTFS_Dublin_Bus.zip",
+      "local_path": "data\\raw\\GTFS_Dublin_Bus.zip",
+      "downloaded_at": "2026-09-11T14:46:01.611251+00:00",
+      "status": "success",
+      "file_size_bytes": 37531684,
+      "sha256": "cfdcb76ff82932ba6ef096febcc9f9c2b87e24c34b198d483a5c38d24ab881ee",
+      "extracted_to": "data\\raw\\gtfs_dublin",
+      "extracted_files": [
+        "feed_info.txt",
+        "agency.txt",
+        "stops.txt",
+        "calendar.txt",
+        "calendar_dates.txt",
+        "routes.txt",
+        "trips.txt",
+        "shapes.txt",
+        "stop_times.txt",
+        "translations.txt"
+      ]
+    },
+    {
+      "dataset_name": "Open-Meteo Historical Meteorological Archive (Dublin)",
+      "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=53.3498&longitude=-6.2603&start_date=2023-01-01&end_date=2023-03-31",
+      "local_path": "data\\raw\\historical_weather_dublin.csv",
+      "downloaded_at": "2026-09-11T14:46:08.014159+00:00",
+      "status": "success",
+      "file_size_bytes": 101606,
+      "sha256": "88658d0d32b9fec8bb55303e455dd0ce84d8170eda389f64186441c5b2c61e47",
+      "records_count": 2160,
+      "temporal_range": {
+        "start": "2023-01-01T00:00",
+        "end": "2023-03-31T23:00"
+      }
+    }
+  ]
+}

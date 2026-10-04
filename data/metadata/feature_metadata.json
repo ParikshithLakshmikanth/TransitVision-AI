@@ -1,0 +1,151 @@
+{
+  "metadata_version": "1.0.0",
+  "features_count": 29,
+  "features": [
+    {
+      "name": "hour",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "minute",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "day_of_week",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "is_weekend",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "int64"
+    },
+    {
+      "name": "sin_hour",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "cos_hour",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "latitude",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "longitude",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "distance_to_next_stop_km",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "distance_remaining_on_route_km",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "stops_remaining",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "direction_id",
+      "provenance": "REAL",
+      "data_type": "int64"
+    },
+    {
+      "name": "stop_sequence",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "current_speed_kmh",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "recent_speed_mean",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "recent_speed_std",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "recent_speed_min",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "recent_speed_max",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "is_at_stop",
+      "provenance": "REAL",
+      "data_type": "int64"
+    },
+    {
+      "name": "dwell_time_sec",
+      "provenance": "DERIVED_FROM_REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "is_congested",
+      "provenance": "REAL",
+      "data_type": "int64"
+    },
+    {
+      "name": "temperature_2m",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "precipitation",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "rain",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "wind_speed_10m",
+      "provenance": "REAL",
+      "data_type": "float64"
+    },
+    {
+      "name": "weather_code",
+      "provenance": "REAL",
+      "data_type": "int64"
+    },
+    {
+      "name": "simulated_passenger_occupancy_ratio",
+      "provenance": "SYNTHETIC",
+      "data_type": "float64"
+    },
+    {
+      "name": "injected_disturbance_intensity",
+      "provenance": "SYNTHETIC",
+      "data_type": "float64"
+    },
+    {
+      "name": "is_incident_active",
+      "provenance": "SYNTHETIC",
+      "data_type": "int64"
+    }
+  ]
+}

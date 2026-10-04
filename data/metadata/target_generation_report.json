@@ -1,0 +1,33 @@
+{
+  "report_generated_at": "2026-09-12T05:44:04.042230+00:00",
+  "target_variable": "eta_to_next_stop_sec",
+  "initial_input_records": 3,
+  "valid_labeled_records": 2,
+  "rejected_records_count": 1,
+  "rejection_breakdown": {
+    "missing_next_stop_or_terminal_stop": 1,
+    "negative_or_zero_eta": 0,
+    "implausibly_large_eta": 0,
+    "nan_or_corrupt_target": 0
+  },
+  "target_distribution": {
+    "count": 2,
+    "mean_sec": 90.0,
+    "median_sec": 90.0,
+    "std_sec": 0.0,
+    "min_sec": 90.0,
+    "max_sec": 90.0,
+    "percentiles_sec": {
+      "p25": 90.0,
+      "p50": 90.0,
+      "p75": 90.0,
+      "p90": 90.0,
+      "p95": 90.0,
+      "p99": 90.0
+    }
+  },
+  "quality_constraints": {
+    "min_allowed_eta_sec": 1.0,
+    "max_allowed_eta_sec": 3600.0
+  }
+}

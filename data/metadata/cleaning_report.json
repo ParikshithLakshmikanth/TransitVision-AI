@@ -1,0 +1,51 @@
+{
+  "cleaning_timestamp": "2026-09-12T05:44:04.032166+00:00",
+  "initial_records": 3,
+  "final_clean_records": 1,
+  "total_records_removed": 2,
+  "overall_retention_rate_pct": 33.33,
+  "audit_trail": [
+    {
+      "stage": "duplicate_removal",
+      "records_before": 3,
+      "records_removed": 0,
+      "records_remaining": 3,
+      "reason": "Exact duplicate records across all fields"
+    },
+    {
+      "stage": "timestamp_sanitization",
+      "records_before": 3,
+      "records_removed": 0,
+      "records_remaining": 3,
+      "reason": "Missing or null UTC timestamps"
+    },
+    {
+      "stage": "coordinate_bounding_box",
+      "records_before": 3,
+      "records_removed": 1,
+      "records_remaining": 2,
+      "reason": "Latitude outside [53.15, 53.55] or Longitude outside [-6.55, -6.05]"
+    },
+    {
+      "stage": "speed_limit_enforcement",
+      "records_before": 2,
+      "records_removed": 1,
+      "records_remaining": 1,
+      "reason": "Speed outside physical range [0.0, 100.0] km/h"
+    },
+    {
+      "stage": "identifier_integrity",
+      "records_before": 1,
+      "records_removed": 0,
+      "records_remaining": 1,
+      "reason": "Missing route_id or trip_id identifier"
+    },
+    {
+      "stage": "stop_identification",
+      "records_before": 1,
+      "records_removed": 0,
+      "records_remaining": 1,
+      "reason": "Missing current stop identifier"
+    }
+  ]
+}

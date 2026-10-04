@@ -1,0 +1,170 @@
+{
+  "profile_generated_at": "2026-09-11T14:46:40.633085+00:00",
+  "datasets": {
+    "routes": {
+      "file": "routes.txt",
+      "row_count": 116,
+      "columns": [
+        "route_id",
+        "agency_id",
+        "route_short_name",
+        "route_long_name",
+        "route_desc",
+        "route_type",
+        "route_url",
+        "route_color",
+        "route_text_color"
+      ],
+      "dtypes": {
+        "route_id": "str",
+        "agency_id": "int64",
+        "route_short_name": "str",
+        "route_long_name": "str",
+        "route_desc": "float64",
+        "route_type": "int64",
+        "route_url": "float64",
+        "route_color": "float64",
+        "route_text_color": "float64"
+      },
+      "unique_routes_count": 116,
+      "sample_routes": [
+        "1",
+        "11",
+        "116",
+        "118",
+        "11B",
+        "120",
+        "122",
+        "13",
+        "130",
+        "14"
+      ],
+      "missing_values": {
+        "route_id": 0,
+        "agency_id": 0,
+        "route_short_name": 0,
+        "route_long_name": 0,
+        "route_desc": 116,
+        "route_type": 0,
+        "route_url": 116,
+        "route_color": 116,
+        "route_text_color": 116
+      },
+      "duplicates": 0
+    },
+    "stops": {
+      "file": "stops.txt",
+      "row_count": 4337,
+      "columns": [
+        "stop_id",
+        "stop_code",
+        "stop_name",
+        "stop_desc",
+        "stop_lat",
+        "stop_lon",
+        "zone_id",
+        "stop_url",
+        "location_type",
+        "parent_station"
+      ],
+      "unique_stops_count": 4337,
+      "geographic_bounds": {
+        "min_latitude": 53.070678,
+        "max_latitude": 53.606196,
+        "min_longitude": -6.6149,
+        "max_longitude": -6.053311
+      },
+      "missing_values": {
+        "stop_id": 0,
+        "stop_code": 0,
+        "stop_name": 0,
+        "stop_desc": 4337,
+        "stop_lat": 0,
+        "stop_lon": 0,
+        "zone_id": 4337,
+        "stop_url": 4337,
+        "location_type": 4337,
+        "parent_station": 4337
+      },
+      "duplicates": 0
+    },
+    "trips": {
+      "file": "trips.txt",
+      "row_count": 56054,
+      "columns": [
+        "route_id",
+        "service_id",
+        "trip_id",
+        "trip_headsign",
+        "trip_short_name",
+        "direction_id",
+        "block_id",
+        "shape_id"
+      ],
+      "unique_trips_count": 56054,
+      "unique_blocks_count": 3258,
+      "unique_routes_in_trips": 116,
+      "unique_shapes_count": 1227,
+      "missing_values": {
+        "route_id": 0,
+        "service_id": 0,
+        "trip_id": 0,
+        "trip_headsign": 0,
+        "trip_short_name": 0,
+        "direction_id": 0,
+        "block_id": 0,
+        "shape_id": 0
+      },
+      "duplicates": 0
+    },
+    "stop_times": {
+      "file": "stop_times.txt",
+      "row_count": 3035625,
+      "unique_trips_referenced": 56054,
+      "unique_stops_referenced": 4337,
+      "missing_values": {
+        "trip_id": 0,
+        "arrival_time": 0,
+        "departure_time": 0,
+        "stop_id": 0,
+        "stop_sequence": 0
+      }
+    },
+    "weather": {
+      "file": "historical_weather_dublin.csv",
+      "row_count": 2160,
+      "columns": [
+        "time",
+        "temperature_2m",
+        "relative_humidity_2m",
+        "precipitation",
+        "rain",
+        "weather_code",
+        "surface_pressure",
+        "wind_speed_10m"
+      ],
+      "temporal_range": {
+        "start": "2023-01-01T00:00",
+        "end": "2023-03-31T23:00"
+      },
+      "missing_values": {
+        "time": 0,
+        "temperature_2m": 0,
+        "relative_humidity_2m": 0,
+        "precipitation": 0,
+        "rain": 0,
+        "weather_code": 0,
+        "surface_pressure": 0,
+        "wind_speed_10m": 0
+      },
+      "duplicates": 0,
+      "metrics_summary": {
+        "mean_temp_c": 7.452592592592593,
+        "min_temp_c": -2.5,
+        "max_temp_c": 16.0,
+        "mean_wind_kmh": 18.88449074074074,
+        "total_precip_mm": 213.70000000000005
+      }
+    }
+  }
+}

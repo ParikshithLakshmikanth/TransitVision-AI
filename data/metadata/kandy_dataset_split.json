@@ -1,0 +1,31 @@
+{
+  "split_generated_at": "2026-09-11T15:46:29.097428+00:00",
+  "total_records": 200679,
+  "train": {
+    "records": 140475,
+    "percentage": 70.0,
+    "start_time_utc": "2021-10-01 06:39:49+00:00",
+    "end_time_utc": "2022-07-02 16:13:53+00:00",
+    "unique_trips": 9855,
+    "unique_devices": 23,
+    "file": "data/processed/kandy_eta_training.parquet"
+  },
+  "validation": {
+    "records": 30102,
+    "percentage": 15.0,
+    "start_time_utc": "2022-07-02 16:14:28+00:00",
+    "end_time_utc": "2022-09-27 12:02:31+00:00",
+    "unique_trips": 2146,
+    "unique_devices": 19,
+    "file": "data/processed/kandy_eta_validation.parquet"
+  },
+  "stream_replay": {
+    "records": 30102,
+    "percentage": 15.0,
+    "start_time_utc": "2022-09-27 12:05:09+00:00",
+    "end_time_utc": "2022-11-01 18:57:10+00:00",
+    "unique_trips": 2133,
+    "unique_devices": 18,
+    "file": "data/processed/kandy_eta_stream.parquet"
+  }
+}

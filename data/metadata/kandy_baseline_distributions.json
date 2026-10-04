@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-09-11T15:46:29.511808+00:00",
+  "total_records": 200679,
+  "eta_to_next_stop_sec": {
+    "mean": 188.13,
+    "std": 125.17,
+    "p25": 105.0,
+    "p50": 162.0,
+    "p75": 233.0,
+    "p90": 370.0,
+    "p99": 580.0
+  },
+  "segment_length_km": {
+    "mean": 1.1395,
+    "std": 0.5322
+  },
+  "previous_segment_run_time": {
+    "mean": 190.91,
+    "std": 126.61
+  },
+  "temperature_2m": {
+    "mean": 24.22,
+    "std": 2.58
+  },
+  "precipitation": {
+    "mean": 0.2893,
+    "max": 22.3
+  }
+}

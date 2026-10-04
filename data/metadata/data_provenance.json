@@ -1,0 +1,33 @@
+{
+  "system": "TransitVision AI",
+  "provenance_policy": "Strict Immutability & Reproducibility",
+  "audit_trail": [
+    {
+      "step": 1,
+      "phase": "RAW_INGESTION",
+      "action": "Download raw CSV / API snapshots into data/raw/",
+      "immutability": "READ_ONLY_STRICT",
+      "hash_algorithm": "SHA-256",
+      "output_dir": "data/raw/"
+    },
+    {
+      "step": 2,
+      "phase": "DATA_VALIDATION",
+      "action": "Execute ml/data/validator.py against schema constraints",
+      "outputs": ["data/metadata/validation_report.json"],
+      "rejection_policy": "Log anomaly metrics, filter corrupt records to data/interim/quarantine.csv"
+    },
+    {
+      "step": 3,
+      "phase": "PREPROCESSING_AND_ALIGNMENT",
+      "action": "Clean, interpolate speeds, fuzzy-join hourly weather, and generate lag features",
+      "output_dir": "data/processed/"
+    },
+    {
+      "step": 4,
+      "phase": "SIMULATION_SPLIT",
+      "action": "Partition historical timeline: 70% Baseline Training, 30% Streaming Replay Buffer",
+      "output_files": ["data/processed/train_baseline.parquet", "data/processed/telemetry_stream_source.parquet"]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "project": "TransitVision AI",
+  "version": "1.0.0",
+  "fields": {
+    "Timestamp": {
+      "type": "integer",
+      "description": "Timestamp of the AVL record in microseconds or seconds since Unix epoch.",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "LineID": {
+      "type": "string",
+      "description": "Public bus route identifier (e.g. 15, 39A, 46A).",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "Direction": {
+      "type": "integer",
+      "description": "Route directional orientation (1: Inbound, 2: Outbound).",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "JourneyPatternID": {
+      "type": "string",
+      "description": "Identifier for the sequence of stops followed by this bus trip pattern.",
+      "category": "REAL_OBSERVATION",
+      "nullable": true
+    },
+    "VehicleJourneyID": {
+      "type": "string",
+      "description": "Unique identifier for the scheduled trip run.",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "Congestion": {
+      "type": "integer",
+      "description": "Binary flag indicating vehicular congestion/delay (0: Free flow, 1: Congested).",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "Longitude": {
+      "type": "float",
+      "description": "WGS84 Longitude coordinate of the bus.",
+      "category": "REAL_OBSERVATION",
+      "valid_range": [-6.55, -6.05],
+      "nullable": false
+    },
+    "Latitude": {
+      "type": "float",
+      "description": "WGS84 Latitude coordinate of the bus.",
+      "category": "REAL_OBSERVATION",
+      "valid_range": [53.15, 53.55],
+      "nullable": false
+    },
+    "Delay": {
+      "type": "float",
+      "description": "Ground truth delay in seconds relative to scheduled timetable (target variable).",
+      "category": "REAL_OBSERVATION",
+      "unit": "seconds",
+      "valid_range": [-1800, 7200],
+      "nullable": false
+    },
+    "VehicleID": {
+      "type": "string",
+      "description": "Unique identifier of the physical bus unit.",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "StopID": {
+      "type": "string",
+      "description": "Identifier of the nearest or scheduled bus stop.",
+      "category": "REAL_OBSERVATION",
+      "nullable": true
+    },
+    "AtStop": {
+      "type": "integer",
+      "description": "Flag indicating if the bus is currently dwelling at a stop (1: At stop, 0: In transit).",
+      "category": "REAL_OBSERVATION",
+      "nullable": false
+    },
+    "temperature_2m": {
+      "type": "float",
+      "description": "Historical 2-meter air temperature (°C) matched from Open-Meteo.",
+      "category": "REAL_OBSERVATION",
+      "unit": "celsius",
+      "nullable": true
+    },
+    "precipitation": {
+      "type": "float",
+      "description": "Precipitation volume (mm) recorded for the operational hour.",
+      "category": "REAL_OBSERVATION",
+      "unit": "mm",
+      "nullable": true
+    },
+    "simulated_passenger_occupancy_ratio": {
+      "type": "float",
+      "description": "Simulated passenger capacity load factor (0.0 to 1.0).",
+      "category": "SYNTHETIC_SIMULATION_FEATURE",
+      "unit": "ratio",
+      "nullable": false
+    },
+    "injected_disturbance_intensity": {
+      "type": "float",
+      "description": "Controlled disturbance multiplier for drift simulation experiments.",
+      "category": "SYNTHETIC_SIMULATION_FEATURE",
+      "unit": "multiplier",
+      "nullable": false
+    }
+  }
+}

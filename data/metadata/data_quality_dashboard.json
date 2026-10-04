@@ -1,0 +1,43 @@
+{
+  "pipeline_executed_at": "2026-09-11T14:53:43.100461+00:00",
+  "total_raw_records": 283696,
+  "cleaned_records": 283696,
+  "labeled_valid_records": 279496,
+  "train_records": 195647,
+  "validation_records": 41924,
+  "stream_records": 41925,
+  "unique_routes": 3,
+  "unique_stops": 205,
+  "unique_vehicles": 35,
+  "temporal_range": {
+    "start": "2023-01-01 05:32:00+00:00",
+    "end": "2023-01-29 00:19:49+00:00"
+  },
+  "geographic_bounds": {
+    "min_lat": 53.330855,
+    "max_lat": 53.401876,
+    "min_lon": -6.444322,
+    "max_lon": -6.233902
+  },
+  "target_summary": {
+    "count": 279496,
+    "mean_sec": 82.99,
+    "median_sec": 66.0,
+    "std_sec": 59.81,
+    "min_sec": 10.0,
+    "max_sec": 819.0,
+    "percentiles_sec": {
+      "p25": 45.0,
+      "p50": 66.0,
+      "p75": 100.0,
+      "p90": 154.0,
+      "p95": 203.0,
+      "p99": 300.0
+    }
+  },
+  "cleaning_summary": {
+    "records_removed": 0,
+    "retention_rate_pct": 100.0
+  },
+  "features_engineered_count": 29
+}

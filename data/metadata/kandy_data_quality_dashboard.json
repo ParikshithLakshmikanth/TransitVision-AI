@@ -1,0 +1,36 @@
+{
+  "pipeline_executed_at": "2026-09-11T15:46:29.543387+00:00",
+  "status": "SUCCESS",
+  "provenance_status": "VERIFIED",
+  "dataset_name": "Bus Travel Time Data (Kandy, Sri Lanka)",
+  "total_raw_records": 203128,
+  "clean_records": 200679,
+  "labeled_valid_records": 200679,
+  "train_records": 140475,
+  "validation_records": 30102,
+  "stream_records": 30102,
+  "unique_trips": 14126,
+  "unique_devices": 26,
+  "temporal_range": {
+    "start": "2021-10-01 06:39:49+00:00",
+    "end": "2022-11-01 18:57:10+00:00"
+  },
+  "target_statistics": {
+    "count": 200679,
+    "mean_sec": 188.13,
+    "median_sec": 162.0,
+    "std_sec": 125.17,
+    "min_sec": 3.0,
+    "max_sec": 1199.0,
+    "percentiles_sec": {
+      "p25": 105.0,
+      "p50": 162.0,
+      "p75": 233.0,
+      "p90": 370.0,
+      "p95": 441.0,
+      "p99": 580.0
+    }
+  },
+  "features_count": 29,
+  "weather_match_rate_pct": 100.0
+}

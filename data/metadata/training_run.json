@@ -1,0 +1,49 @@
+{
+  "run_id": "run_1789141832",
+  "execution_timestamp_utc": "2026-09-11T15:50:32.188761+00:00",
+  "python_version": "3.11.13",
+  "system_os": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "scikit-learn": "1.9.0",
+    "lightgbm": "4.7.0",
+    "joblib": "1.5.3",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.1"
+  },
+  "random_seed": 42,
+  "dataset_version": "kandy_route_654_v1.0",
+  "training_dataset_rows": 140475,
+  "validation_dataset_rows": 30102,
+  "feature_version": "v1.0.0",
+  "target": "eta_to_next_stop_sec",
+  "selected_production_model": "LightGBM",
+  "selected_model_id": "model_lightgbm_v1",
+  "hyperparameters": {
+    "n_estimators": 167,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "subsample": 0.85,
+    "colsample_bytree": 0.85,
+    "random_state": 42
+  },
+  "validation_metrics": {
+    "samples": 30102,
+    "mae_sec": 44.01,
+    "rmse_sec": 71.98,
+    "median_ae_sec": 26.04,
+    "p90_error_sec": 101.02,
+    "p95_error_sec": 146.88,
+    "p99_error_sec": 287.96,
+    "r2": 0.7035,
+    "mape_pct": 20.86,
+    "smape_pct": 21.92,
+    "mape_definition": "mean(|y_true - y_pred| / y_true) * 100 on targets >= 10.0s",
+    "sanity_checks": {
+      "non_positive_predictions_count": 0,
+      "non_positive_predictions_pct": 0.0,
+      "excessive_predictions_count": 0,
+      "excessive_predictions_pct": 0.0
+    }
+  }
+}

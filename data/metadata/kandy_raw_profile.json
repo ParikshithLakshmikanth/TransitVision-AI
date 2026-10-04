@@ -1,0 +1,194 @@
+{
+  "profile_generated_at": "2026-09-11T15:39:39.067649+00:00",
+  "dataset_name": "Bus Travel Time Data (Kandy, Sri Lanka)",
+  "source_url": "https://www.kaggle.com/datasets/shiveswarranr/bus-travel-time-data",
+  "tables": {
+    "bus_running_times_654": {
+      "filename": "bus_running_times_654.csv",
+      "row_count": 203128,
+      "columns": [
+        "trip_id",
+        "deviceid",
+        "direction",
+        "segment",
+        "date",
+        "start_time",
+        "end_time",
+        "run_time_in_seconds",
+        "length"
+      ],
+      "dtypes": {
+        "trip_id": "float64",
+        "deviceid": "float64",
+        "direction": "float64",
+        "segment": "float64",
+        "date": "str",
+        "start_time": "str",
+        "end_time": "str",
+        "run_time_in_seconds": "float64",
+        "length": "float64"
+      },
+      "missing_values": {
+        "trip_id": 64,
+        "deviceid": 64,
+        "direction": 64,
+        "segment": 64,
+        "date": 2449,
+        "start_time": 2449,
+        "end_time": 2449,
+        "run_time_in_seconds": 2449,
+        "length": 64
+      },
+      "unique_trips": 14128,
+      "unique_devices": 26,
+      "unique_segments": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "directions": [
+        1,
+        2
+      ],
+      "date_range": {
+        "min_date": "2021-10-01",
+        "max_date": "2022-11-01"
+      },
+      "running_time_seconds_stats": {
+        "mean": 188.13,
+        "median": 162.0,
+        "min": 3.0,
+        "max": 1199.0,
+        "std": 125.17
+      },
+      "segment_length_km_stats": {
+        "mean": 1.1393,
+        "min": 0.2572,
+        "max": 2.5612
+      }
+    },
+    "bus_dwell_times_654": {
+      "filename": "bus_dwell_times_654.csv",
+      "row_count": 191602,
+      "columns": [
+        "trip_id",
+        "deviceid",
+        "direction",
+        "bus_stop",
+        "date",
+        "arrival_time",
+        "departure_time",
+        "dwell_time_in_seconds"
+      ],
+      "missing_values": {
+        "trip_id": 0,
+        "deviceid": 0,
+        "direction": 0,
+        "bus_stop": 0,
+        "date": 0,
+        "arrival_time": 0,
+        "departure_time": 0,
+        "dwell_time_in_seconds": 0
+      },
+      "unique_trips": 14316,
+      "unique_devices": 26,
+      "unique_bus_stops": 27,
+      "dwell_time_seconds_stats": {
+        "mean": 31.86,
+        "median": 15.0,
+        "min": 0.0,
+        "max": 990.0
+      }
+    },
+    "bus_stops_and_terminals_654": {
+      "filename": "bus_stops_and_terminals_654.csv",
+      "row_count": 31,
+      "columns": [
+        "stop_id",
+        "route_id",
+        "direction",
+        "address",
+        "latitude",
+        "longitude"
+      ],
+      "unique_stops": 29,
+      "routes": [
+        654
+      ],
+      "directions": [
+        "Kandy-Digana",
+        "Digana-Kandy"
+      ],
+      "geographic_bounds": {
+        "min_latitude": 7.279117,
+        "max_latitude": 7.29896,
+        "min_longitude": 80.6349778,
+        "max_longitude": 80.73472
+      }
+    },
+    "bus_trips_654": {
+      "filename": "bus_trips_654.csv",
+      "row_count": 10224,
+      "columns": [
+        "trip_id",
+        "deviceid",
+        "date",
+        "start_terminal",
+        "end_terminal",
+        "direction",
+        "start_time",
+        "end_time",
+        "duration",
+        "duration_in_mins"
+      ],
+      "unique_trips": 10224,
+      "unique_devices": 23,
+      "duration_in_mins_stats": {
+        "mean": 52.89,
+        "median": 53.23,
+        "min": 29.18,
+        "max": 77.55
+      }
+    },
+    "historical_weather_kandy": {
+      "filename": "historical_weather_kandy.csv",
+      "row_count": 9528,
+      "temporal_range": {
+        "start": "2021-10-01T00:00",
+        "end": "2022-11-01T23:00"
+      },
+      "temperature_2m_stats": {
+        "mean_c": 23.62,
+        "min_c": 15.5,
+        "max_c": 32.5
+      },
+      "total_precipitation_mm": 1960.8
+    }
+  }
+}

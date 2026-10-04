@@ -1,0 +1,152 @@
+{
+  "metadata_version": "1.0.0",
+  "dataset": "Bus Travel Time Data (Kandy, Sri Lanka)",
+  "total_features": 29,
+  "features": [
+    {
+      "name": "hour",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "minute",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "day_of_week",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "is_weekend",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "is_peak_period",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "sin_hour",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "cos_hour",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "sin_time_of_day",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "cos_time_of_day",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "direction",
+      "provenance": "REAL_GPS_DERIVED",
+      "data_type": "int64"
+    },
+    {
+      "name": "segment",
+      "provenance": "REAL_GPS_DERIVED",
+      "data_type": "int64"
+    },
+    {
+      "name": "segment_length_km",
+      "provenance": "REAL_GPS_DERIVED",
+      "data_type": "float64"
+    },
+    {
+      "name": "segments_completed",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "segments_remaining",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "trip_progress_ratio",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "deviceid",
+      "provenance": "REAL_GPS_DERIVED",
+      "data_type": "str"
+    },
+    {
+      "name": "previous_segment_run_time",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "rolling_prev_segment_mean",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "rolling_prev_segment_std",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "cumulative_trip_time_sec",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "historical_segment_time_mean",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "segment_delay_ratio",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "float64"
+    },
+    {
+      "name": "congestion_proxy",
+      "provenance": "DERIVED_FEATURE",
+      "data_type": "int64"
+    },
+    {
+      "name": "temperature_2m",
+      "provenance": "WEATHER_OBSERVED",
+      "data_type": "float64"
+    },
+    {
+      "name": "relative_humidity_2m",
+      "provenance": "WEATHER_OBSERVED",
+      "data_type": "float64"
+    },
+    {
+      "name": "precipitation",
+      "provenance": "WEATHER_OBSERVED",
+      "data_type": "float64"
+    },
+    {
+      "name": "rain",
+      "provenance": "WEATHER_OBSERVED",
+      "data_type": "float64"
+    },
+    {
+      "name": "wind_speed_10m",
+      "provenance": "WEATHER_OBSERVED",
+      "data_type": "float64"
+    },
+    {
+      "name": "weather_code",
+      "provenance": "WEATHER_OBSERVED",
+      "data_type": "int64"
+    }
+  ]
+}
