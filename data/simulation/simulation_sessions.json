@@ -25522,5 +25522,29 @@
     "outcomes_resolved": 0,
     "cursor": 0,
     "updated_at_utc": "2026-09-12T06:20:45.410446+00:00"
+  },
+  {
+    "simulation_id": "SIM_20261005_142315_288",
+    "created_at_utc": "2026-10-05T14:23:15.542839+00:00",
+    "status": "STOPPED",
+    "source_dataset": "kandy_eta_stream.parquet",
+    "source_sha256": "332479b56571e88ecfa596abd2cd412f7f51e4c1ce96f1ac016517a58606ab85",
+    "total_records": 30102,
+    "replay_speed": 100.0,
+    "filters": {
+      "trip_id": null,
+      "deviceid": null,
+      "direction": null,
+      "segment": null
+    },
+    "scenario_id": "BASELINE",
+    "source_type": "REAL_REPLAY",
+    "synthetic_disturbance": false,
+    "model_version": "v1.0.0",
+    "records_emitted": 0,
+    "predictions_generated": 0,
+    "outcomes_resolved": 0,
+    "cursor": 0,
+    "updated_at_utc": "2026-10-05T14:30:05.605785+00:00"
   }
 ]
